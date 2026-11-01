@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+    @apply transition-colors duration-300;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+  }
+}
+
+html, body, #root {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-700 rounded-full hover:bg-gray-400 dark:hover:bg-gray-600 transition-colors;
+}
+
+/* Glassmorphism classes */
+.glass-panel {
+  @apply bg-white/75 dark:bg-slate-900/75 backdrop-blur-md border border-slate-200/50 dark:border-slate-800/50;
+}
+
+.glass-card {
+  @apply bg-white/60 dark:bg-slate-900/60 backdrop-blur-sm border border-white/40 dark:border-slate-800/40;
+}
+
+.glass-input {
+  @apply bg-white/50 dark:bg-slate-900/50 backdrop-blur-md border border-slate-300/50 dark:border-slate-700/50 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500/30;
+}
+
+/* Futuristic Background Theme */
+.news-bg-image {
+  background-image: url('/news-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 180s linear infinite;
+  transform-origin: center;
+}
+
+/* 3D Holographic Orbit Circles (Circle Routed Background) */
+.animate-orbit-1 {
+  transform: translate(-50%, -50%) rotateX(65deg) rotateY(15deg) rotateZ(0deg);
+  animation: orbit-spin-1 30s linear infinite;
+  transform-origin: center;
+}
+@keyframes orbit-spin-1 {
+  from { transform: translate(-50%, -50%) rotateX(65deg) rotateY(15deg) rotateZ(0deg); }
+  to { transform: translate(-50%, -50%) rotateX(65deg) rotateY(15deg) rotateZ(360deg); }
+}
+
+.animate-orbit-1::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  background-color: #38bdf8;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px #0ea5e9, 0 0 20px #38bdf8;
+}
+
+.animate-orbit-2 {
+  transform: translate(-50%, -50%) rotateX(-50deg) rotateY(25deg) rotateZ(0deg);
+  animation: orbit-spin-2 45s linear infinite;
+  transform-origin: center;
+}
+@keyframes orbit-spin-2 {
+  from { transform: translate(-50%, -50%) rotateX(-50deg) rotateY(25deg) rotateZ(360deg); }
+  to { transform: translate(-50%, -50%) rotateX(-50deg) rotateY(25deg) rotateZ(0deg); }
+}
+
+.animate-orbit-2::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background-color: #22d3ee;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 8px #06b6d4, 0 0 16px #22d3ee;
+}
+
+.animate-orbit-3 {
+  transform: translate(-50%, -50%) rotateX(35deg) rotateY(-40deg) rotateZ(0deg);
+  animation: orbit-spin-3 70s linear infinite;
+  transform-origin: center;
+}
+@keyframes orbit-spin-3 {
+  from { transform: translate(-50%, -50%) rotateX(35deg) rotateY(-40deg) rotateZ(0deg); }
+  to { transform: translate(-50%, -50%) rotateX(35deg) rotateY(-40deg) rotateZ(360deg); }
+}
+
+.animate-orbit-3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  width: 8px;
+  height: 8px;
+  background-color: #818cf8;
+  border-radius: 50%;
+  transform: translate(50%, 50%);
+  box-shadow: 0 0 10px #6366f1, 0 0 20px #818cf8;
+}
+
+/* Container Utilities */
+.container {
+  @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+/* Marquee Scrolling Ticker Tape */
+@keyframes marquee {
+  0% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 50s linear infinite;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
